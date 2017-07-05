@@ -1,0 +1,323 @@
+body {
+    font-size: 10px;
+    font-family: Consolas, courier;
+    cursor: crosshair;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin : 0;
+    background-color: rgb(247, 247, 247);
+}
+
+.cell {
+    fill: transparent;
+    stroke: rgb(200, 200, 200);
+    stroke-width: 2px; 
+}
+
+.mainrow.expanded {
+    cursor:default;
+}
+
+table {
+    position: absolute;
+    margin-left: 10px;
+    border-collapse: collapse;
+}
+
+tr, td {
+    padding: 1px 1px 0px 1px;
+}
+
+thead {
+    position: fixed;
+    background: rgb(247, 247, 247);
+    z-index: 50;
+}
+
+thead, tbody {
+    display: block;
+}
+
+thead th {
+    min-width:14.9px;
+}
+
+tbody {
+    margin-top: 30px;
+}
+
+#Degrees {
+    text-align: left;
+    min-width: 75px;
+}
+
+#Courses {
+    text-align: left;
+    min-width: 75px;
+}
+
+.tooltip {
+    position:absolute;
+    padding: 2px;
+    background: black;	
+    color:white;
+    opacity: 0.7;
+    border: 0px;
+    z-index: 200;
+    border-radius: 8px;			
+}
+
+.draggedRow {
+    position:absolute;
+    opacity: 0.7;
+    z-index: 120;
+}
+
+.target {
+    outline: 2px dashed grey;
+}
+
+.target.overed {
+    transition: background-color 500ms;
+    outline: 2px solid grey;
+    background-color: rgb(173,216,230);
+}
+
+.container {
+    position: fixed;
+    top: 0px;
+    background: rgb(247, 247, 247);
+    z-index: 120;
+    padding-bottom: 10px;
+    padding-right: 100px;
+    font-size: 10px;
+}
+
+.xAxis, .yAxis, .xLineAxisCompare, .yLineAxisCompare, .xLineAxisYear {
+    opacity: 0.8;
+}
+
+.menu {
+    cursor: pointer;
+    float:left;
+    margin-top: 2px;
+    margin-right: 15px;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.menu.open {
+    outline: 2px solid black;
+    background-color: blanchedalmond;
+}
+
+.line {
+    width: 20px;
+    height: 4px;
+    background-color: black;
+    margin: 4px;
+}
+
+.toggle, .xAttribute, .yAttribute, .infoAttribute {
+    cursor: default;
+    position: fixed;
+    top: 40px;
+    left: 20px;
+    color: white;
+    padding: 15px 15px 15px 15px;
+    margin: auto;
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    text-align: center;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.5);
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    z-index: 500;
+}
+
+.attributeButton.checked, .xOption.checked, .yOption.checked, .infoOption.checked {
+    background-color: skyblue;
+}
+
+.attributeButton, .xOption, .yOption, .infoOption {
+    padding:5px;
+    cursor: pointer;
+    width: 50px;
+    color: black;
+	background: white;
+    opacity: 0.8;
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+.pill, .clearpill, .linePill {
+    float:left;
+    height: 7px;
+    display: inline-block;
+    margin-top: 6px;
+    margin-bottom: 4px;
+    padding: 4px;
+    line-height: 10px;
+    border-radius: 20px;
+}
+
+.pill.firstLabel {
+    background-color: rgb(135, 185, 201);
+}
+
+.pill.secondLabel {
+    background-color: rgb(173,216,230);
+}
+
+.pill.filter {
+    background-color: coral;
+}
+
+.clearpill {
+    float:left;
+    padding: 5px;
+    margin-top: 4px;
+    font-size: 10px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: black;
+    opacity: 1;
+    background-color: gainsboro;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px grey;
+    -webkit-transition: background-color .2s ease-in-out, -webkit-transform .1s ease-in-out;
+    -moz-transition: background-color .2s ease-in-out, -moz-transform .1s ease-in-out;
+    -o-transition: background-color .2s ease-in-out, -o-transform .1s ease-in-out;
+    transition: background-color .2s ease-in-out, transform .1s ease-in-out;
+}
+
+.searchBox {
+    display: inline-block;
+    padding: 5px;
+    margin-left: 15px;
+}
+
+.inputField {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 200px;
+    border-color: darkgray;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.icon {
+    display: inline;
+    background-image: url('/static/assets/searchIcon.png');
+    background-size: 15px 15px;
+    padding: 10px;
+    padding-top: 3px; 
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    cursor: default;
+}
+
+.pillContainer {
+    clear: both;
+}
+
+
+.clearpill:hover {
+    background-color: lightgray;
+}
+
+.clearpill:active {
+    background-color: lightgray;
+    box-shadow: 0 1px darkgray;
+    -webkit-transform: translate(0, 2px);
+    -moz-transform: translate(0, 2px);
+    -o-transform: translate(0, 2px);
+    transform: translate(0, 2px);
+}
+
+.closebtn {
+    padding-left: 10px;
+    color: grey;
+    font-weight: bold;
+    float: right;
+    font-size: 12px;
+    line-height: 8px;
+    cursor: pointer;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.menuclosebtn, .xclosebtn, .yclosebtn, .infoClosebtn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.multiSelection {
+    position: absolute;
+    background-color: rgba(173,216,230, 0.2);
+    outline: 2px solid rgb(173,216,230);
+    z-index: 60;
+}
+
+.secondTextLabel {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.secondTextLabel.highlighted, .secondTextLabel.selected {
+    outline: 2px solid rgb(173,216,230);
+}
+
+
+.firstTextLabel.highlighted, .firstTextLabel.selected {
+    outline: 2px solid rgb(135, 185, 201);
+}
+
+.tick line {
+    display: none;
+}
+
+.svgLine, .svgLineCompare {
+    stroke-width: 2;
+    fill: none;
+}
+
+.yLineAxis path, .xLineAxis path, .yAxis path, .xAxis path, .yLineAxisCompare path, .xLineAxisCompare path {
+    fill: transparent;
+    stroke: rgb(150, 150, 150);
+}
+
+.lineContainer, .barContainer {
+    outline: 1px solid rgb(200, 200, 200);
+}
+
+.xLineAxisCompare > .tick > text, .yLineAxisCompare > .tick > text, .yAxis > .tick > text, .xAxis > .tick > text{
+    font-size: 8px;
+}
+
+.barAxis path, .barAxis > .tick > text {
+    display: none;
+}
+
+.selectCell {
+    stroke: black;
+    stroke-width: 4px;
+}
